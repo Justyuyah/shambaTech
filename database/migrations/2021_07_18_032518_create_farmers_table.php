@@ -21,12 +21,12 @@ class CreateFarmersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('mobileNumber')->unique();
-            $table->string('region');
-            $table->string('district');
-            $table->string('ward');
-            $table->string('village');
-            $table->string('cropType');
-            $table->string('password');
+            // $table->string('region');
+            // $table->string('district');
+            // $table->string('ward');
+            // $table->string('village');
+            // $table->string('cropType');
+            // $table->string('password');
             $table->boolean('is_farmer')->default(true);
             $table->rememberToken();
             $table->timestamps();
