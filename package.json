@@ -14,5 +14,11 @@
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"
+<<<<<<< HEAD
+=======
+    },
+    "dependencies": {
+        "tailwind": "^4.0.0"
+>>>>>>> 838b83a9268203c70284163cf8d8eb72b0a84ed2
     }
 }

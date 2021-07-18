@@ -38,7 +38,11 @@
                                     <button type="submit" class="btn btn-success">Sign me in</button>
                                 </div>
                                 <div class="col-sm-8 text-sm-end">
+<<<<<<< HEAD
                                     <span>Don't have an account? <a href="/admin/register"><u>Sign up</u></a></span>
+=======
+                                    <span>Don't have an account? <a href="/farmer/register"><u>Sign up</u></a></span>
+>>>>>>> 838b83a9268203c70284163cf8d8eb72b0a84ed2
                                 </div>
                             </div>
                         </form>
@@ -53,4 +57,8 @@
 
 </main>
 <!-- **************** MAIN CONTENT END **************** -->
+<<<<<<< HEAD
 @endsection
+=======
+@endsection
+>>>>>>> 838b83a9268203c70284163cf8d8eb72b0a84ed2

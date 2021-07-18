@@ -1,5 +1,9 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
+=======
+<html lang="en" xmlns:link="http://www.w3.org/1999/html">
+>>>>>>> 838b83a9268203c70284163cf8d8eb72b0a84ed2
 
 <head>
     <title>ShambaTech | @yield('title')</title>
@@ -22,10 +26,20 @@
     <link rel="stylesheet" type="text/css" href="/assets/vendor/font-awesome/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/vendor/bootstrap-icons/bootstrap-icons.css">
     <link rel="stylesheet" type="text/css" href="/assets/vendor/tiny-slider/tiny-slider.css">
+<<<<<<< HEAD
 
     <!-- Theme CSS -->
     <link id="style-switch" rel="stylesheet" type="text/css" href="/assets/css/style.css">
 
+=======
+    <!-- Theme CSS -->
+    <link id="style-switch" rel="stylesheet" type="text/css" href="/assets/css/style.css">
+
+<style>
+    @yield('style')
+    @yield('styleProfile')
+</style>
+>>>>>>> 838b83a9268203c70284163cf8d8eb72b0a84ed2
 </head>
 
 <body>
@@ -69,9 +83,15 @@
                                 {{Auth::user()->firstName}}
                                 {{Auth::user()->lastName}}</a>
                             <ul class="dropdown-menu" aria-labelledby="homeMenu">
+<<<<<<< HEAD
                                 <li> <a class="dropdown-item" href="/farmer/profile"><i
                                             class="mr-1 align-middle fas fa-fw fa-user"></i> View Profile</a></li>
                                 <li> <a class="dropdown-item" href="/farmer/profile/{{Auth::user()->id}}"> <i
+=======
+                                <li> <a class="dropdown-item" href="/farmer/viewProfile/"><i
+                                            class="mr-1 align-middle fas fa-fw fa-user"></i> View Profile</a></li>
+                                <li> <a class="dropdown-item" href="/farmer/profile"> <i
+>>>>>>> 838b83a9268203c70284163cf8d8eb72b0a84ed2
                                             class="mr-1 align-middle fas fa-fw fa-pen"></i> Edit
                                         Profile</a></li>
                                 <li> <a class="dropdown-item" href="/farmer/changePassword/{{Auth::user()->id}}"><i
@@ -96,4 +116,8 @@
         <!-- Logo Nav END -->
     </header>
     <!-- =======================
+<<<<<<< HEAD
 Header END -->
+=======
+Header END -->
+>>>>>>> 838b83a9268203c70284163cf8d8eb72b0a84ed2

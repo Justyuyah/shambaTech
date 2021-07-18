@@ -6,16 +6,21 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Farmer;
+<<<<<<< HEAD
 use App\Models\Admin;
 use App\Models\Veo;
 use Illuminate\Support\Facades\Auth;
 use PDO;
+=======
+use Illuminate\Support\Facades\Auth;
+>>>>>>> 838b83a9268203c70284163cf8d8eb72b0a84ed2
 
 class AuthController extends Controller
 {
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+<<<<<<< HEAD
         $this->middleware('guest:admin')->except('logout');
         $this->middleware('guest:farmer')->except('logout');
     }
@@ -112,6 +117,10 @@ class AuthController extends Controller
     //END OF VEO
 
     //FARMER
+=======
+        $this->middleware('guest:farmer')->except('logout');
+    }
+>>>>>>> 838b83a9268203c70284163cf8d8eb72b0a84ed2
     public function farmer()
     {
         return view('farmer.index');
@@ -165,5 +174,8 @@ class AuthController extends Controller
         return redirect('/farmer')->with('error', 'You Logged out!');
     }
 }
+<<<<<<< HEAD
 
 //END OF FARMER
+=======
+>>>>>>> 838b83a9268203c70284163cf8d8eb72b0a84ed2
