@@ -6,21 +6,17 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Farmer;
-<<<<<<< HEAD
 use App\Models\Admin;
 use App\Models\Veo;
 use Illuminate\Support\Facades\Auth;
 use PDO;
-=======
-use Illuminate\Support\Facades\Auth;
->>>>>>> 838b83a9268203c70284163cf8d8eb72b0a84ed2
+
 
 class AuthController extends Controller
 {
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-<<<<<<< HEAD
         $this->middleware('guest:admin')->except('logout');
         $this->middleware('guest:farmer')->except('logout');
     }
@@ -62,6 +58,7 @@ class AuthController extends Controller
             return back()->withInput()->with('error', 'Failed Try again');
         }
     }
+
     // END OF ADMIN
 
     //vEO
@@ -75,7 +72,7 @@ class AuthController extends Controller
             'email' => 'required|email|string|max:255',
             'password' => 'required|string|max:255'
         ]);
-        if (Auth::guard('veo')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+        if (Auth::guard('veo')->attempt(['email' => $request->input('email'), 'password' => $request->input('password'), 'is_veo' => '1'])) {
             return redirect()->intended('/veo/home');
         } else {
             return back()->withInput()->with('error', 'Invalid Email Address or Password');
@@ -109,18 +106,15 @@ class AuthController extends Controller
         $veo->mobileNumber = $request->input('mobileNumber');
         $veo->password = Hash::make($request->input('password'));
         if ($veo->save()) {
-            return redirect('/veo')->with('success', 'Successful Created Account,login to proceeds.');
+            return redirect('/veo')->with('success', 'Successful Created Account,Wait for confirmtion.');
         } else {
             return back()->withInput()->with('error', 'Failed Try again');
         }
     }
     //END OF VEO
 
-    //FARMER
-=======
-        $this->middleware('guest:farmer')->except('logout');
-    }
->>>>>>> 838b83a9268203c70284163cf8d8eb72b0a84ed2
+    //FARMEr
+
     public function farmer()
     {
         return view('farmer.index');
@@ -174,8 +168,3 @@ class AuthController extends Controller
         return redirect('/farmer')->with('error', 'You Logged out!');
     }
 }
-<<<<<<< HEAD
-
-//END OF FARMER
-=======
->>>>>>> 838b83a9268203c70284163cf8d8eb72b0a84ed2

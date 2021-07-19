@@ -1,5 +1,5 @@
 @extends('admin.app')
-@section('head','Veo')
+@section('head','Admin')
 @section('content')
 
 @endsection

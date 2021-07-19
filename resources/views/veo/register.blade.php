@@ -38,7 +38,7 @@ Inner intro START -->
                             <div class="mb-3">
                                 <label class="form-label" for="exampleInputEmail1">Gender</label>
                                 <select name="gender" id="" class="form-control">
-                                    <option value="">Select Gendere</option>
+                                    <option value="">Select Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                 </select>

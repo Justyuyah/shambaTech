@@ -1,6 +1,6 @@
 @extends('admin.app')
 @section('head','Veo')
-@section('title','Dashboard')
+@section('title','Post Article')
 @section('content')
 
 @endsection
