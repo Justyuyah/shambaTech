@@ -10,6 +10,8 @@ use App\Models\Admin;
 use App\Models\Veo;
 use Illuminate\Support\Facades\Auth;
 use App\Models\category;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 
 class AuthController extends Controller
@@ -33,6 +35,7 @@ class AuthController extends Controller
             'password' => 'required|string|max:255'
         ]);
         if (Auth::guard('admin')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            Log::debug("Admin logged  in email =" . $request->input('email'));
             return redirect()->intended('/admin/home');
         } else {
             return back()->withInput()->with('error', 'Invalid Email Address or Password');
@@ -54,6 +57,7 @@ class AuthController extends Controller
         $admin->email = $request->input('email');
         $admin->password = Hash::make($request->input('password'));
         if ($admin->save()) {
+            Log::debug("Admin registered email =" . $request->input('email'));
             return redirect('/admin')->with('success', 'Successful Created Account,login to proceeds.');
         } else {
             return back()->withInput()->with('error', 'Failed Try again');
@@ -74,6 +78,7 @@ class AuthController extends Controller
             'password' => 'required|string|max:255'
         ]);
         if (Auth::guard('veo')->attempt(['email' => $request->input('email'), 'password' => $request->input('password'), 'is_veo' => '1'])) {
+            Log::debug("Veo logged  in email =" . $request->input('email'));
             return redirect()->intended('/veo/home');
         } else {
             return back()->withInput()->with('error', 'Invalid Email Address or Password');
@@ -107,6 +112,7 @@ class AuthController extends Controller
         $veo->mobileNumber = $request->input('mobileNumber');
         $veo->password = Hash::make($request->input('password'));
         if ($veo->save()) {
+            Log::debug("Veo registered email =" . $request->input('email'));
             return redirect('/veo')->with('success', 'Successful Created Account,Wait for confirmtion.');
         } else {
             return back()->withInput()->with('error', 'Failed Try again');
@@ -127,6 +133,7 @@ class AuthController extends Controller
             'password' => 'required|string|max:255'
         ]);
         if (Auth::guard('farmer')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
+            Log::debug("Farmer logged  in email =" . $request->input('email'));
             return redirect()->intended('/farmer/home');
         } else {
             return back()->withInput()->with('error', 'Invalid Email Address or Password');
@@ -168,6 +175,7 @@ class AuthController extends Controller
         $farmer->mobileNumber = $request->input('mobileNumber');
         $farmer->password = Hash::make($request->input('password'));
         if ($farmer->save()) {
+            Log::debug("Farmer registered email =" . $request->input('email'));
             return redirect('/')->with('success', 'Successful Created Account,login to proceeds.');
         } else {
             return back()->withInput()->with('error', 'Failed Try again');

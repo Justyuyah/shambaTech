@@ -19,6 +19,7 @@ class Comment extends Controller
         $comment->commentable_id = $request->input('commentable_id');
         $comment->farmer_id = $id;
         if ($comment->save()) {
+            Log::debug("Farmer commented");
             return back()->with('success', 'Comment was Added');
         } else {
             return back()->withInput()->with('error', 'Failed to comment');
