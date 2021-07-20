@@ -18,7 +18,7 @@ class CreateMessagesTable extends Migration
             $table->string('type');
             $table->bigInteger('from_id');
             $table->bigInteger('to_id');
-            $table->string('body',5000)->nullable();
+            $table->string('body', 5000)->nullable();
             $table->string('attachment')->nullable();
             $table->boolean('seen')->default(false);
             $table->timestamps();
@@ -34,6 +34,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('ch__messages');
     }
 }

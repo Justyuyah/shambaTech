@@ -9,7 +9,7 @@ use App\Models\Farmer;
 use App\Models\Admin;
 use App\Models\Veo;
 use Illuminate\Support\Facades\Auth;
-use PDO;
+use App\Models\category;
 
 
 class AuthController extends Controller
@@ -134,7 +134,8 @@ class AuthController extends Controller
     public function farmerRegister()
     {
         //$data = file_get_contents('assets/tanzania.villages.json');
-        return view('farmer.register');
+        $category =  category::orderBy('created_at', 'asc')->get();
+        return view('farmer.register')->with('category', $category);
     }
     public function farmerRegisterProcess(Request $request)
     {
@@ -142,6 +143,12 @@ class AuthController extends Controller
             'firstName' => 'required|string',
             'lastName' => 'required|string',
             'userName' => 'required|string|unique:farmers',
+            'ward' => 'required|string',
+            'gender' => 'required|string',
+            'village' => 'required|string',
+            'district' => 'required|string',
+            'region' => 'required|string',
+            'cropType' => 'required|string',
             'email' => 'required|string|email|unique:farmers',
             'mobileNumber' => 'required|string|unique:farmers|min:10|max:14',
             'password' => 'required|string|min:6|max:255|confirmed'
@@ -151,20 +158,18 @@ class AuthController extends Controller
         $farmer->lastName = $request->input('lastName');
         $farmer->userName = $request->input('userName');
         $farmer->email = $request->input('email');
+        $farmer->ward = $request->input('ward');
+        $farmer->village = $request->input('village');
+        $farmer->cropType = $request->input('cropType');
+        $farmer->region = $request->input('region');
+        $farmer->gender = $request->input('gender');
+        $farmer->district = $request->input('district');
         $farmer->mobileNumber = $request->input('mobileNumber');
         $farmer->password = Hash::make($request->input('password'));
         if ($farmer->save()) {
-            return redirect('/farmer')->with('success', 'Successful Created Account,login to proceeds.');
+            return redirect('/')->with('success', 'Successful Created Account,login to proceeds.');
         } else {
             return back()->withInput()->with('error', 'Failed Try again');
         }
-    }
-
-    public function farmerLogout(Request $request)
-    {
-        Auth::logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect('/farmer')->with('error', 'You Logged out!');
     }
 }

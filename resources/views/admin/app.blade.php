@@ -49,7 +49,7 @@
             @endif
             @if (Request::is('veo*'))
             <div class="nav-item text-nowrap">
-                <form action="/veo/signout" method="POST">
+                <form action="/veo/logout" method="POST">
                     @csrf
                     <button type="submit" class="px-3 btn btn-primary">Signout</button>
                 </form>
@@ -94,7 +94,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link @if (Request::is('veo/*')) active @endif
+                            <a class="nav-link @if (Request::is('veo/category*')) active @endif
                                                         @endi" href="/veo/category">
                                 <i class="fas fa-layer-group"></i>
                                 Categories
@@ -113,9 +113,14 @@
 
                     <h6
                         class="px-3 mt-4 mb-1 sidebar-heading d-flex justify-content-between align-items-center text-muted">
+                        @if (Request::is('admin*'))
                         <span class="text-green">{{Auth::user()->name}}</span>
-                        <a class="link-secondary" href="#" aria-label="Add a new report">
-                            <span data-feather="plus-circle"></span>
+                        @endif
+                        @if (Request::is('veo*'))
+                        <span class="text-green">{{Auth::user()->firstName}} {{Auth::user()->lastName}}</span>
+                        @endif
+                        {{-- <a class="link-secondary" href="#" aria-label="Add a new report">
+                            <span data-feather="plus-circle"></span> --}}
                         </a>
                     </h6>
                     @if (Request::is('admin*'))
@@ -186,6 +191,14 @@
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/datatable/jquery.dataTables.min.js"></script>
     <script src="/assets/datatable/dataTables.bootstrap.min.js"></script>
+    <script src="/ckeditor/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#editor' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 </body>
 
 </html>

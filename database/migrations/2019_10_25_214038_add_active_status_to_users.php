@@ -13,9 +13,21 @@ class AddActiveStatusToUsers extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('admins', function (Blueprint $table) {
             // if not exist, add the new column
-            if (!Schema::hasColumn('users', 'active_status')) {
+            if (!Schema::hasColumn('admins', 'active_status')) {
+                $table->boolean('active_status')->default(0);
+            }
+        });
+        Schema::table('veos', function (Blueprint $table) {
+            // if not exist, add the new column
+            if (!Schema::hasColumn('veos', 'active_status')) {
+                $table->boolean('active_status')->default(0);
+            }
+        });
+        Schema::table('farmers', function (Blueprint $table) {
+            // if not exist, add the new column
+            if (!Schema::hasColumn('farmers', 'active_status')) {
                 $table->boolean('active_status')->default(0);
             }
         });
@@ -28,7 +40,13 @@ class AddActiveStatusToUsers extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
+        Schema::table('admins', function (Blueprint $table) {
+            $table->dropColumn('active_status');
+        });
+        Schema::table('farmers', function (Blueprint $table) {
+            $table->dropColumn('active_status');
+        });
+        Schema::table('veos', function (Blueprint $table) {
             $table->dropColumn('active_status');
         });
     }

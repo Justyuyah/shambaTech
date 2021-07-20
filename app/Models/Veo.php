@@ -36,4 +36,10 @@ class Veo extends Model implements AuthenticatableContract
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function article()
+    {
+        return $this->hasMany('App\Models\Article');
+    }
 }

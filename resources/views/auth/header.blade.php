@@ -54,8 +54,9 @@ Header START -->
                 <!-- Main navbar START -->
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav navbar-nav-scroll ms-auto">
-                        <li class="nav-item"> <a class="nav-link @if (Request::is('farmer*')) active    @endif"
-                                href="/farmer">Farmer</a></li>
+                        <li class="nav-item"> <a
+                                class="nav-link @if ((Request::is('/')) || Request::is('farmer*') ) active    @endif"
+                                href="/">Farmer</a></li>
                         <li class="nav-item"> <a class="nav-link @if (Request::is('veo*')) active    @endif"
                                 href="/veo">Veo</a></li>
                         <li class="nav-item"> <a class="nav-link @if (Request::is('about*')) active    @endif"

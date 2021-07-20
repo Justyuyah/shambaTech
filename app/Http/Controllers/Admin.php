@@ -53,6 +53,6 @@ class Admin extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        return redirect('/admin')->with('error', 'You Logged out!');
+        return redirect('/')->with('error', 'You Logged out!');
     }
 }

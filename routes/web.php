@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Farmer;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Veo;
+use App\Http\Controllers\Comment;
 
 //admin
 Route::get('/admin', [AuthController::class, 'admin'])->name('admin');
@@ -21,14 +22,14 @@ Route::get('/admin/farmer', [Admin::class, 'farmer'])->name('admin/farmer');
 //end of Admin
 
 //Farmer
-
 Route::get('/', [AuthController::class, 'farmer'])->name('/');
 Route::post('/farmer', [AuthController::class, 'farmerLogin'])->name('farmer');
 Route::get('/farmer/register', [AuthController::class, 'farmerRegister'])->name('farmer/register');
 Route::post('/farmer/register', [AuthController::class, 'farmerRegisterProcess'])->name('farmer/register');
 Route::get('/farmer/home', [Farmer::class, 'index'])->name('/farmer/home');
-Route::post('/farmer/logout', [AuthController::class, 'farmerLogout'])->name('farmer/logout');
-
+Route::post('/farmer/logout', [Farmer::class, 'logout'])->name('farmer/logout');
+Route::get('/farmer/article/view/{id}', [Farmer::class, 'articleView'])->name('farmer/article/view');
+Route::post('/farmer/comment/{id}', [Comment::class, 'comment'])->name('farmer/comment');
 //end of farmer
 
 //veo
@@ -40,6 +41,8 @@ Route::get('/veo/home', [Veo::class, 'index'])->name('veo/home');
 Route::get('/veo/category', [Veo::class, 'category'])->name('veo/category');
 Route::post('/veo/add/category', [Veo::class, 'categoryAdd'])->name('veo/add/category');
 Route::post('/veo/logout', [Veo::class, 'logout'])->name('veo/logout');
+Route::post('/post/article', [Veo::class, 'postArticle'])->name('post/article');
+Route::get('/veo/article/view/{id}', [Veo::class, 'viewArticle'])->name('veo/article/view');
 //end of veo
 Route::get('/about', function () {
     return view('about');

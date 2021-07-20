@@ -48,7 +48,7 @@ JS libraries, plugins and custom scripts -->
 
 <!-- Template Functions -->
 <script src="/assets/js/functions.js"></script>
-
+<script src="/assets/js/regions_districts.js"></script>
 </body>
 
 </html>

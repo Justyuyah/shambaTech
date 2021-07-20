@@ -44,6 +44,14 @@ Inner intro START -->
                                     id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="UserName"
                                     required>
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="exampleInputEmail1">Gender</label>
+                                <select name="gender" id="" class="form-control">
+                                    <option value="">Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
                             <!-- phone -->
                             <div class="mb-3">
                                 <label class="form-label" for="exampleInputEmail1">MobileNumber</label>
@@ -61,7 +69,74 @@ Inner intro START -->
                                 <small id="emailHelp" class="form-text">We'll never share your email with anyone
                                     else.</small>
                             </div>
-                            <div class="row">
+                            <div class="mb-3 row">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="exampleInputEmail1">Select Region You From</label>
+                                    <select name="region" id="select1" onchange="populate('select1','select2')"
+                                        class="form-control" required>
+                                        <option value="">Select Region</option>
+                                        <option value="ARUSHA">ARUSHA</option>
+                                        <option value="DAR ES SALAAM">DAR-ES-SALAAM</option>
+                                        <option value="DODOMA">DODOMA</option>
+                                        <option value="GEITA">GEITA</option>
+                                        <option value="IRINGA">IRINGA</option>
+                                        <option value="KAGERA">KAGERA</option>
+                                        <option value="KATAVI">KATAVI</option>
+                                        <option value="KIGOMA">KIGOMA</option>
+                                        <option value="KILIMANJARO">KILIMANJARO</option>
+                                        <option value="LINDI">LINDI</option>
+                                        <option value="MANYARA">MANYARA</option>
+                                        <option value="MARA">MARA</option>
+                                        <option value="MBEYA">MBEYA</option>
+                                        <option value="MOROGORO">MOROGORO</option>
+                                        <option value="MTWARA">MTWARA</option>
+                                        <option value="MWANZA">MWANZA</option>
+                                        <option value="NJOMBE">NJOMBE</option>
+                                        <option value="PEMBA KUSINI">PEMBA-KUSINI</option>
+                                        <option value="PEMBA KASKAZINI">PEMBA-KASKAZINI</option>
+                                        <option value="PWANI">PWANI</option>
+                                        <option value="RUKWA">RUKWA</option>
+                                        <option value="RUVUMA">RUVUMA</option>
+                                        <option value="SHINYANGA">SHINYANGA</option>
+                                        <option value="SIMIYU">SIMIYU</option>
+                                        <option value="SINGIDA">SINGIDA</option>
+                                        <option value="SONGWE">SONGWE</option>
+                                        <option value="TABORA">TABORA</option>
+                                        <option value="TANGA">TANGA</option>
+                                        <option value="UNGUJA MJINI">UNGUJA-MJINI</option>
+                                        <option value="UNGUJA KUSINI">UNGUJA-KUSINI</option>
+                                        <option value="UNGUJA KASKAZINI">UNGUJA-KASKAZINI</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="exampleInputEmail1">Select District You From</label>
+                                    <select name="district" id="select2" class="form-control" required>
+                                        <option value="#">Select District</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="exampleInputEmail1">Enter Ward You From</label>
+                                    <input type="text" name="ward" value="{{old('ward')}}" placeholder="Enter Ward"
+                                        id="" class="form-control" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="exampleInputEmail1">Enter Village You From</label>
+                                    <input type="text" name="village" value="{{old('village')}}" id=""
+                                        placeholder="Enter Village" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="exampleInputEmail1">Crop Type</label>
+                                <select name="cropType" id="select2" class="form-control" required>
+                                    <option value="#">Select Crop Type </option>
+                                    @foreach ($category as $cat)
+                                    <option value="{{$cat->name}}">{{$cat->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-3 row">
                                 <div class="col-md-6">
                                     <!-- Password -->
                                     <div class="mb-3">

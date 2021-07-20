@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use App\Models\Comment;
 
 class Farmer extends Model implements AuthenticatableContract
 {
@@ -33,4 +34,14 @@ class Farmer extends Model implements AuthenticatableContract
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
+    // public function comments()
+    // {
+    //     return $this->morphMany(Comment::class, 'commentable');
+    // }
 }
