@@ -103,7 +103,7 @@
                         <li class="nav-item">
                             <a class="nav-link @if (Request::is('veo/farmer*')) active @endif
 
-                                                        @endi" href="/veo/farmer">
+                                                        @endi" href="/shambatech">
                                 <i class="fas fa-envelope"></i>
                                 Chat
                             </a>

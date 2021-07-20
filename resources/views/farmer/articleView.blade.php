@@ -76,18 +76,20 @@
                 <div class="mt-5">
                     <h3>{{$totalComment}} comments</h3>
                     <!-- Comment level 1-->
+                    @foreach ($comments as $comment)
                     <div class="my-4 d-flex">
                         <img class="avatar avatar-md rounded-circle float-start me-3" src="/assets/images/avatar/01.jpg"
                             alt="avatar">
                         <div>
                             <div class="mb-2">
-                                <h5 class="m-0"></h5>
-                                <span class="me-3 small"> </span>
-                                <a href="#" class="text-body fw-normal">Reply</a>
+                                <h5 class="m-0">{{$comment->farmer->userName}}</h5>
+                                <span class="me-3 small">{{$comment->created_at}}</span>
+                                {{-- <a href="#" class="text-body fw-normal">Reply</a> --}}
                             </div>
-                            <p>. </p>
+                            <p>{{$comment->body}} </p>
                         </div>
                     </div>
+                    @endforeach
                 </div>
                 <!-- Comments END -->
                 <!-- Reply START -->

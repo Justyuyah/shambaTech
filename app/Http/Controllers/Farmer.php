@@ -56,7 +56,7 @@ class Farmer extends Controller
     public function articleView($id)
     {
         $article = Article::find($id);
-        $comments = Comment::find($id);
+        $comments = Comment::where('commentable_id', '=', $id)->get();
         $totalComment = Comment::where('commentable_id', '=', $id)->count();
         return view('farmer.articleView')->with('article', $article)->with('comments', $comments)->with('totalComment', $totalComment);
     }

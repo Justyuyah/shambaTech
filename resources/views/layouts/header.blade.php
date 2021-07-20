@@ -57,7 +57,7 @@
                         <!-- Nav item 5 link-->
                         <li class="nav-item"> <a class="nav-link @if (Request::is('farmer/home')) active
                         @endif" href="/farmer/home"><i class="mr-1 align-middle fas fa-fw fa-home"></i> Home</a></li>
-                        <li class="nav-item"> <a class="nav-link" href="/farmer/home"><i
+                        <li class="nav-item"> <a class="nav-link" href="/shambatech"><i
                                     class="mr-1 align-middle fas fa-fw fa-comment"></i> Chat</a></li>
                     </ul>
                 </div>

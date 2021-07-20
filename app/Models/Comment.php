@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Farmer;
 
 class Comment extends Model
 {
@@ -13,13 +14,15 @@ class Comment extends Model
         'farmer_id',
         'commentable_id'
     ];
-    public function commentable()
-    {
-        return $this->morphTo();
-    }
+    // public function commentable()
+    // {
+    //     return $this->morphTo();
+    // }
 
     public function farmer()
     {
-        return $this->hasOne('App\Models\Farmer', 'id', 'farmer_id');
+        // return $this->hasOne('App\Models\Farmer', 'id', 'farmer_id');
+        return $this->belongsTo(Farmer::class);
     }
+    
 }
